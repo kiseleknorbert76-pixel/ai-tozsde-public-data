@@ -1,0 +1,6 @@
+{
+  "schema_version": 1,
+  "status": "transport_test",
+  "message": "AI & Tozsde public GET connectivity test; no market data",
+  "contains_market_data": false
+}
