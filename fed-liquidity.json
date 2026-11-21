@@ -1,0 +1,55 @@
+{
+  "checked_at": "2026-11-21T19:15:56.371149+00:00",
+  "frequency": "weekly",
+  "indicators": [
+    {
+      "key": "fed_assets",
+      "observed_at": "2026-11-18",
+      "source_url": "https://www.federalreserve.gov/releases/h41/current/",
+      "status": "ok",
+      "unit": "million_usd",
+      "value": 6741452.0
+    },
+    {
+      "key": "tga",
+      "observed_at": "2026-11-18",
+      "source_url": "https://www.federalreserve.gov/releases/h41/current/",
+      "status": "ok",
+      "unit": "million_usd",
+      "value": 892310.0
+    },
+    {
+      "key": "rrp_overnight",
+      "observed_at": "2026-11-18",
+      "source_url": "https://markets.newyorkfed.org/api/rp/reverserepo/all/results/last/10.json",
+      "status": "ok",
+      "unit": "million_usd",
+      "value": 331.0
+    }
+  ],
+  "liquidity": {
+    "formula": "fed_assets - tga - rrp_overnight",
+    "key": "fed_net_liquidity_proxy",
+    "observed_at": "2026-11-18",
+    "unit": "million_usd",
+    "value": 5848811.0,
+    "warning": "AI & Tozsde derived estimate, not global liquidity or an official Fed statistic"
+  },
+  "observed_at": "2026-11-18",
+  "schema_version": 1,
+  "sources": [
+    {
+      "name": "Federal Reserve Board, H.4.1 table 5",
+      "terms": "https://www.federalreserve.gov/disclaimer.htm",
+      "url": "https://www.federalreserve.gov/releases/h41/current/"
+    },
+    {
+      "attribution": "\u00a9 2026 Federal Reserve Bank of New York. Content from the New York Fed subject to the Terms of Use at newyorkfed.org.",
+      "modification": "Accepted USD amount converted to million USD; proxy calculated independently by AI & Tozsde. No endorsement implied.",
+      "name": "Reverse Repo Operations",
+      "terms": "https://www.newyorkfed.org/privacy/termsofuse.html",
+      "url": "https://markets.newyorkfed.org/api/rp/reverserepo/all/results/last/10.json"
+    }
+  ],
+  "status": "ok"
+}
