@@ -1,0 +1,24 @@
+name: Verify public Fed liquidity freshness (read-only)
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'fed-liquidity.json'
+      - 'scripts/check_fed_liquidity.py'
+      - '.github/workflows/verify-fed-publication.yml'
+  schedule:
+    - cron: '15 7,19 * * *'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Validate exact published data provenance and age
+        run: python scripts/check_fed_liquidity.py fed-liquidity.json
