@@ -7,6 +7,8 @@ from pathlib import Path
 
 H41 = "https://www.federalreserve.gov/releases/h41/current/"
 RRP = "https://markets.newyorkfed.org/api/rp/reverserepo/all/results/last/10.json"
+FRED = "https://fred.stlouisfed.org/graph/fredgraph.csv?id="
+ALLOWED_SOURCES = {"fed_assets": (H41, FRED + "WALCL"), "tga": (H41, FRED + "WDTGAL"), "rrp_overnight": (RRP, FRED + "RRPONTSYD")}
 
 
 def verify(path, now=None):
@@ -30,9 +32,9 @@ def verify(path, now=None):
     values = {}
     for row in rows:
         key = row["key"]
-        expected_source = RRP if key == "rrp_overnight" else H41
+        expected_sources = ALLOWED_SOURCES.get(key, ())
         value = row["value"]
-        if key in values or key not in ("fed_assets", "tga", "rrp_overnight") or row["observed_at"] != observed.isoformat() or row["source_url"] != expected_source or row["unit"] != "million_usd" or row["status"] != "ok" or type(value) not in (float, int) or not math.isfinite(value) or value < 0:
+        if key in values or key not in ("fed_assets", "tga", "rrp_overnight") or row["observed_at"] != observed.isoformat() or row["source_url"] not in expected_sources or row["unit"] != "million_usd" or row["status"] != "ok" or type(value) not in (float, int) or not math.isfinite(value) or value < 0:
             raise ValueError("invalid_indicator")
         values[key] = value
     if len(values) != 3:
