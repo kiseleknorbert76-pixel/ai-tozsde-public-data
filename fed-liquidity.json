@@ -2,39 +2,39 @@
   "schema_version": 1,
   "status": "ok",
   "frequency": "weekly",
-  "observed_at": "2026-11-18",
-  "checked_at": "2026-11-27T07:40:03.723161+00:00",
+  "observed_at": "2026-11-25",
+  "checked_at": "2026-11-27T22:55:43.052824+00:00",
   "indicators": [
     {
       "key": "fed_assets",
-      "observed_at": "2026-11-18",
+      "observed_at": "2026-11-25",
       "source_url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=WALCL",
       "status": "ok",
       "unit": "million_usd",
-      "value": 6741452.0
+      "value": 6732044.0
     },
     {
       "key": "tga",
-      "observed_at": "2026-11-18",
+      "observed_at": "2026-11-25",
       "source_url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=WDTGAL",
       "status": "ok",
       "unit": "million_usd",
-      "value": 892310.0
+      "value": 923563.0
     },
     {
       "key": "rrp_overnight",
-      "observed_at": "2026-11-18",
+      "observed_at": "2026-11-25",
       "source_url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=RRPONTSYD",
       "status": "ok",
       "unit": "million_usd",
-      "value": 331.0
+      "value": 300.0
     }
   ],
   "liquidity": {
     "key": "fed_net_liquidity_proxy",
     "unit": "million_usd",
-    "observed_at": "2026-11-18",
-    "value": 5848811.0,
+    "observed_at": "2026-11-25",
+    "value": 5808181.0,
     "formula": "fed_assets - tga - rrp_overnight",
     "warning": "Derived same-day Fed liquidity proxy, not an official Federal Reserve statistic"
   }
