@@ -3,7 +3,7 @@
   "status": "ok",
   "frequency": "weekly",
   "observed_at": "2026-11-25",
-  "checked_at": "2026-11-27T23:58:53.826480+00:00",
+  "checked_at": "2026-11-28T00:14:17.857551+00:00",
   "indicators": [
     {
       "key": "fed_assets",
